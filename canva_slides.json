@@ -1,0 +1,348 @@
+{
+  "slides": [
+    {
+      "name": "Slide 1 - Title Hook",
+      "size": "1080x1080",
+      "background": {
+        "type": "gradient",
+        "colors": ["#004A99", "#007BFF"],
+        "direction": "diagonal"
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "The Future of HR is Here",
+          "position": {"x": 0.1, "y": 0.25},
+          "size": {"width": 0.8, "height": 0.2},
+          "style": {
+            "fontFamily": "Montserrat Bold",
+            "fontSize": 80,
+            "color": "#FFFFFF",
+            "alignment": "center"
+          }
+        },
+        {
+          "type": "text",
+          "content": "HR Innovation Through AI: 2025 Edition",
+          "position": {"x": 0.1, "y": 0.45},
+          "size": {"width": 0.8, "height": 0.1},
+          "style": {
+            "fontFamily": "Open Sans Regular",
+            "fontSize": 40,
+            "color": "#FFFFFF",
+            "alignment": "center"
+          }
+        },
+        {
+          "type": "text",
+          "content": "By Paul D. Thomas",
+          "position": {"x": 0.1, "y": 0.85},
+          "size": {"width": 0.8, "height": 0.05},
+          "style": {
+            "fontFamily": "Open Sans Regular",
+            "fontSize": 24,
+            "color": "#FFFFFF",
+            "alignment": "right"
+          }
+        },
+        {
+          "type": "icon",
+          "name": "ai_hr_hybrid_head",
+          "position": {"x": 0.45, "y": 0.65},
+          "size": {"width": 0.1, "height": 0.1},
+          "color": "#68D391"
+        }
+      ]
+    },
+    {
+      "name": "Slide 2 - Interactive & Searchable",
+      "size": "1080x1080",
+      "background": {
+        "type": "solid",
+        "color": "#F4F7F6"
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "Interactive. Searchable. Human-Centered.",
+          "position": {"x": 0.1, "y": 0.1},
+          "size": {"width": 0.8, "height": 0.15},
+          "style": {
+            "fontFamily": "Montserrat Bold",
+            "fontSize": 60,
+            "color": "#004A99",
+            "alignment": "left"
+          }
+        },
+        {
+          "type": "text",
+          "content": "Navigate HR’s AI evolution with an experience that adapts to you.\n\uD83D\uDD18 Search live topics like RAG, bias, or GPT-5\n\uD83D\uDD18 Collapse, expand, and explore every section with ease",
+          "position": {"x": 0.1, "y": 0.3},
+          "size": {"width": 0.5, "height": 0.3},
+          "style": {
+            "fontFamily": "Open Sans Regular",
+            "fontSize": 32,
+            "color": "#333333",
+            "alignment": "left",
+            "lineSpacing": 36
+          }
+        },
+        {
+          "type": "graphic",
+          "name": "tablet_ui_mockup",
+          "position": {"x": 0.65, "y": 0.25},
+          "size": {"width": 0.3, "height": 0.4},
+          "style": {
+            "fit": "contain"
+          }
+        },
+        {
+          "type": "badge",
+          "content": "Feature 1 — Experience Design",
+          "position": {"x": 0.1, "y": 0.22},
+          "size": {"width": 0.5, "height": 0.05},
+          "style": {
+            "backgroundColor": "#007BFF",
+            "fontFamily": "Open Sans SemiBold",
+            "fontSize": 24,
+            "color": "#FFFFFF",
+            "borderRadius": 16,
+            "padding": 8
+          }
+        }
+      ]
+    },
+    {
+      "name": "Slide 3 - Practical HR Prompts Library",
+      "size": "1080x1080",
+      "background": {
+        "type": "solid",
+        "color": "#FFFFFF"
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "Your AI-Ready HR Toolkit",
+          "position": {"x": 0.1, "y": 0.1},
+          "size": {"width": 0.8, "height": 0.1},
+          "style": {
+            "fontFamily": "Montserrat Bold",
+            "fontSize": 60,
+            "color": "#004A99",
+            "alignment": "left"
+          }
+        },
+        {
+          "type": "text",
+          "content": "100+ ready-to-use prompts for:",
+          "position": {"x": 0.1, "y": 0.2},
+          "size": {"width": 0.8, "height": 0.05},
+          "style": {
+            "fontFamily": "Open Sans Regular",
+            "fontSize": 32,
+            "color": "#333333",
+            "alignment": "left"
+          }
+        },
+        {
+          "type": "card_grid",
+          "gridSize": {"rows": 2, "columns": 2},
+          "cards": [
+            {
+              "icon": "brain",
+              "title": "Talent Acquisition",
+              "position": {"row": 0, "col": 0},
+              "style": {
+                "backgroundColor": "#E8F5E9",
+                "borderLeftColor": "#4CAF50",
+                "textColor": "#333333",
+                "fontFamily": "Open Sans SemiBold",
+                "fontSize": 28,
+                "padding": 24,
+                "radius": 12
+              }
+            },
+            {
+              "icon": "seedling",
+              "title": "Onboarding & Training",
+              "position": {"row": 0, "col": 1},
+              "style": {
+                "backgroundColor": "#E8F5E9",
+                "borderLeftColor": "#4CAF50",
+                "textColor": "#333333",
+                "fontFamily": "Open Sans SemiBold",
+                "fontSize": 28,
+                "padding": 24,
+                "radius": 12
+              }
+            },
+            {
+              "icon": "chat",
+              "title": "Employee Engagement",
+              "position": {"row": 1, "col": 0},
+              "style": {
+                "backgroundColor": "#E8F5E9",
+                "borderLeftColor": "#4CAF50",
+                "textColor": "#333333",
+                "fontFamily": "Open Sans SemiBold",
+                "fontSize": 28,
+                "padding": 24,
+                "radius": 12
+              }
+            },
+            {
+              "icon": "scale",
+              "title": "Compliance & Policy",
+              "position": {"row": 1, "col": 1},
+              "style": {
+                "backgroundColor": "#E8F5E9",
+                "borderLeftColor": "#4CAF50",
+                "textColor": "#333333",
+                "fontFamily": "Open Sans SemiBold",
+                "fontSize": 28,
+                "padding": 24,
+                "radius": 12
+              }
+            }
+          ],
+          "position": {"x": 0.1, "y": 0.35},
+          "size": {"width": 0.8, "height": 0.5}
+        }
+      ]
+    },
+    {
+      "name": "Slide 4 - Ethics & Safety Framework",
+      "size": "1080x1080",
+      "background": {
+        "type": "solid",
+        "color": "#F4F7F6"
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "AI Ethics and Safety Built for HR",
+          "position": {"x": 0.1, "y": 0.1},
+          "size": {"width": 0.8, "height": 0.1},
+          "style": {
+            "fontFamily": "Montserrat Bold",
+            "fontSize": 60,
+            "color": "#004A99",
+            "alignment": "left"
+          }
+        },
+        {
+          "type": "shield_graphic",
+          "position": {"x": 0.35, "y": 0.25},
+          "size": {"width": 0.3, "height": 0.3},
+          "color": "#004A99"
+        },
+        {
+          "type": "text",
+          "content": "Protecting people means protecting data.\n\u2705 Privacy-first guidance\n\u2705 Bias auditing prompts\n\u2705 Transparent AI use policies\n\u2705 Human-led decision boundaries",
+          "position": {"x": 0.1, "y": 0.6},
+          "size": {"width": 0.8, "height": 0.3},
+          "style": {
+            "fontFamily": "Open Sans Regular",
+            "fontSize": 32,
+            "color": "#333333",
+            "alignment": "left",
+            "lineSpacing": 36
+          }
+        },
+        {
+          "type": "badge",
+          "content": "2025 Compliance Ready",
+          "position": {"x": 0.7, "y": 0.15},
+          "size": {"width": 0.25, "height": 0.06},
+          "style": {
+            "backgroundColor": "#FFC107",
+            "fontFamily": "Open Sans SemiBold",
+            "fontSize": 24,
+            "color": "#333333",
+            "borderRadius": 20,
+            "padding": 6
+          }
+        }
+      ]
+    },
+    {
+      "name": "Slide 5 - Model Comparison",
+      "size": "1080x1080",
+      "background": {
+        "type": "gradient",
+        "colors": ["#004A99", "#001D3A"],
+        "direction": "vertical"
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "Choose Your AI Advantage",
+          "position": {"x": 0.1, "y": 0.1},
+          "size": {"width": 0.8, "height": 0.1},
+          "style": {
+            "fontFamily": "Montserrat Bold",
+            "fontSize": 60,
+            "color": "#FFFFFF",
+            "alignment": "left"
+          }
+        },
+        {
+          "type": "table",
+          "headers": ["Model", "Strength", "Best HR Use"],
+          "rows": [
+            ["GPT-5", "Deep reasoning", "Policy drafting & analytics"],
+            ["Claude 4.5", "Ethical precision", "Employee relations & audit"],
+            ["Gemini 2.5", "Massive context", "Workforce data analysis"]
+          ],
+          "position": {"x": 0.1, "y": 0.25},
+          "size": {"width": 0.8, "height": 0.4},
+          "style": {
+            "headerColor": "#004A99",
+            "headerTextColor": "#FFFFFF",
+            "rowColors": ["#FFFFFF", "#F8F9FA"],
+            "textColor": "#333333",
+            "fontFamily": "Open Sans Regular",
+            "fontSize": 28,
+            "borderColor": "#DDDDDD"
+          }
+        },
+        {
+          "type": "text",
+          "content": "Explore the full guide ➜ paulinmemphis.github.io/enhanced-hr-ai-guide-2025",
+          "position": {"x": 0.1, "y": 0.75},
+          "size": {"width": 0.8, "height": 0.1},
+          "style": {
+            "fontFamily": "Open Sans SemiBold",
+            "fontSize": 28,
+            "color": "#68D391",
+            "alignment": "left",
+            "underline": true
+          }
+        },
+        {
+          "type": "icons",
+          "items": [
+            {
+              "name": "chat_bubble",
+              "position": {"x": 0.1, "y": 0.72},
+              "size": {"width": 0.05, "height": 0.05},
+              "color": "#68D391"
+            },
+            {
+              "name": "balance_scale",
+              "position": {"x": 0.18, "y": 0.72},
+              "size": {"width": 0.05, "height": 0.05},
+              "color": "#68D391"
+            },
+            {
+              "name": "data_nodes",
+              "position": {"x": 0.26, "y": 0.72},
+              "size": {"width": 0.05, "height": 0.05},
+              "color": "#68D391"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
