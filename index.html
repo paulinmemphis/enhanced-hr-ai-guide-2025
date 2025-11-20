@@ -9,7 +9,7 @@
         :root {
             --bg-body: #f4f7f6;
             --bg-container: #ffffff;
-            --bg-section: #ffffff;
+            /* --bg-section removed, use --bg-container */
             --bg-header: linear-gradient(135deg, #004a99 0%, #007bff 100%);
             --text-main: #333333;
             --text-muted: #666666;
@@ -33,7 +33,7 @@
         [data-theme="dark"] {
             --bg-body: #1a202c;
             --bg-container: #2d3748;
-            --bg-section: #2d3748;
+            /* --bg-section removed */
             --bg-header: linear-gradient(135deg, #2c5282 0%, #2b6cb0 100%);
             --text-main: #e2e8f0;
             --text-muted: #a0aec0;
@@ -411,7 +411,7 @@
             margin: 20px 0;
         }
         
-        .pros, .cons {
+        .pros, .application-focus {
             padding: 15px;
             border-radius: 8px;
         }
@@ -421,11 +421,11 @@
             border-left: 4px solid #4caf50;
         }
         
-        .cons {
+        .application-focus {
             background: rgba(244, 67, 54, 0.1);
             border-left: 4px solid #f44336;
         }
-        .pros h4, .cons h4 {
+        .pros h4, .application-focus h4 {
             margin-top: 0;
         }
         
@@ -511,31 +511,31 @@
 </head>
 <body data-theme="light">
     <div class="container">
-        <div class="header">
+        <header class="header">
             <!-- New Theme Toggle -->
             <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Dark Mode</button>
             <h1>HR Innovation Through AI: A Professional's Guide</h1>
             <p>2025 Edition - Interactive Guide</p>
-        </div>
+        </header>
         
         <div class="search-container">
             <input type="text" id="searchBox" placeholder="🔍 Search this guide (e.g., 'RAG', 'bias', 'GPT-5')...">
         </div>
         
-        <div class="nav-container">
+        <nav class="nav-container" role="tablist">
             <div class="nav">
-                <button onclick="showSection('intro', this)" class="active">1. Introduction</button>
-                <button onclick="showSection('llms', this)">2. Intro to LLMs for HR</button>
-                <button onclick="showSection('tools', this)">3. Choosing Your AI Tool</button>
-                <button onclick="showSection('setup', this)">4. Setup & RAG</button>
-                <button onclick="showSection('prompts', this)">5. Practical Prompts</button>
-                <button onclick="showSection('assess', this)">6. Assess AI Output</button>
-                <button onclick="showSection('ethics', this)">7. Ethics & Safety</button>
-                <button onclick="showSection('glossary', this)">8. Glossary & Resources</button>
+                <button onclick="showSection('intro', this)" class="active" role="tab">1. Introduction</button>
+                <button onclick="showSection('llms', this)" role="tab">2. Intro to LLMs for HR</button>
+                <button onclick="showSection('tools', this)" role="tab">3. Choosing Your AI Tool</button>
+                <button onclick="showSection('setup', this)" role="tab">4. Setup & RAG</button>
+                <button onclick="showSection('prompts', this)" role="tab">5. Practical Prompts</button>
+                <button onclick="showSection('assess', this)" role="tab">6. Assess AI Output</button>
+                <button onclick="showSection('ethics', this)" role="tab">7. Ethics & Safety</button>
+                <button onclick="showSection('glossary', this)" role="tab">8. Glossary & Resources</button>
             </div>
-        </div>
+        </nav>
         
-        <div class="content" id="content-area">
+        <main class="content" id="content-area">
             <!-- =================================================================== -->
             <!-- SECTION 1: INTRODUCTION -->
             <!-- =================================================================== -->
@@ -678,7 +678,7 @@
                                 <li><strong>Safety:</strong> High compliance with safety behaviors for sensitive topics.</li>
                             </ul>
                         </div>
-                        <div class="cons">
+                        <div class="application-focus">
                             <h4>Best HR Applications</h4>
                             <p>High-stakes tasks: drafting complex legal compliance documents, analyzing nuanced employee feedback, and serving as the "brain" for your Company Knowledge connector.</p>
                         </div>
@@ -696,7 +696,7 @@
                                 <li><strong>Constitutional AI:</strong> Core focus on generating ethical, unbiased, and safe-by-default content.</li>
                             </ul>
                         </div>
-                        <div class="cons">
+                        <div class="application-focus">
                             <h4>Best HR Applications</h4>
                             <p><strong>Haiku:</strong> High-volume, frontline tasks (resume screening, FAQ). <br><strong>Sonnet:</strong> Building robust internal tools or analyzing employee relations cases where ethical consistency is paramount.</p>
                         </div>
@@ -713,7 +713,7 @@
                                 <li><strong>Ecosystem Integration:</strong> Natively built for Google Workspace (Docs, Sheets, Drive).</li>
                             </ul>
                         </div>
-                        <div class="cons">
+                        <div class="application-focus">
                             <h4>Best HR Applications</h4>
                             <p>The clear choice for HR teams using Google Workspace. Summarize years of data from Google Drive, draft policies in Docs, or analyze trends from Sheets.</p>
                         </div>
@@ -735,7 +735,7 @@
                                         <li><strong>No-Cost Customization:</strong> Can be fine-tuned on your company's exact tone and style.</li>
                                     </ul>
                                 </div>
-                                <div class="cons">
+                                <div class="application-focus">
                                     <h4>Best HR Applications</h4>
                                     <p>Organizations with high data-privacy needs (e.g., healthcare, finance). A self-hosted Llama could analyze internal documents securely or build a fully private internal chatbot.</p>
                                 </div>
@@ -753,7 +753,7 @@
                                         <li><strong>Accessible:</strong> Lowers the cost and technical barrier for self-hosting.</li>
                                     </ul>
                                 </div>
-                                <div class="cons">
+                                <div class="application-focus">
                                     <h4>Best HR Applications</h4>
                                     <p>Organizations that want the privacy of an open-source model but have limited computing budgets or IT resources.</p>
                                 </div>
@@ -1062,7 +1062,7 @@
                             <li><strong>Check for Bias:</strong> Carefully review responses for implicit or explicit biases, particularly in sensitive areas like hiring, performance management, or employee relations. Ensure responses align with your DEI principles.</li>
                         </ol>
 
-                        <h4>Creating a Verification Routine</h4>
+                        <h3>Creating a Verification Routine</h3>
                         <p>Develop a standard checklist for reviewing AI-generated content:</p>
                         <table>
                             <thead>
@@ -1233,12 +1233,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
         
-        <div class="footer">
+        <footer class="footer">
             <p>Original 2024 guide by Paul D. Thomas. Updated and adapted for the 2025 AI landscape by Gemini.</p>
             <p>This document is for informational and educational purposes only. Always consult with qualified legal and compliance professionals before implementing any new policies or technologies.</p>
-        </div>
+        </footer>
     </div>
     
     <script>
@@ -1258,7 +1258,16 @@
             
             // Show selected section
             const targetSection = document.getElementById(sectionId);
-            if (targetSection) targetSection.classList.add('active');
+            if (targetSection) {
+                targetSection.classList.add('active');
+                
+                // Logic to fix collapsible auto-expand bug when switching tabs
+                const activeCollapsibles = targetSection.querySelectorAll('.collapsible.active');
+                activeCollapsibles.forEach(button => {
+                     const content = button.nextElementSibling;
+                     content.style.maxHeight = content.scrollHeight + 'px';
+                });
+            }
             
             // Activate button (handle clicks or deep links)
             if (clickedButton) {
@@ -1315,10 +1324,19 @@
                 btn.className = 'copy-btn';
                 btn.onclick = function() {
                     const text = box.innerText;
-                    navigator.clipboard.writeText(text).then(() => {
+                    // Use textarea hack for iFrame compatibility
+                    const textArea = document.createElement("textarea");
+                    textArea.value = text;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
                         btn.innerHTML = '✅ Copied!';
                         setTimeout(() => btn.innerHTML = '📋 Copy', 2000);
-                    });
+                    } catch (err) {
+                        console.error('Fallback: Oops, unable to copy', err);
+                    }
+                    document.body.removeChild(textArea);
                 };
                 wrapper.appendChild(btn);
             });
@@ -1373,15 +1391,12 @@
                     // Re-init interactions after restore
                     setupCollapsibles();
                     setupCopyButtons();
-                    // Re-binding builder button isn't strictly needed as it's not inside a replaceable section
-                    // except the generated result container is inside #prompts.
-                    // Since #prompts content is restored, the generated result is hidden again. 
-                    // The onclick handler is on the button which is restored. It works fine.
                     return; 
                 }
 
                 const regex = new RegExp(`(${searchTerm.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
-                
+                let firstMatchSectionId = null;
+
                 contentArea.querySelectorAll('.section').forEach(section => {
                     const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT, null, false);
                     let node;
@@ -1402,14 +1417,23 @@
                         }
                     }
 
-                    nodesToReplace.forEach(item => {
-                        const newNode = document.createElement('span');
-                        newNode.innerHTML = item.text.replace(regex, '<span class="highlight">$1</span>');
-                        if (item.node.parentNode) {
-                            item.node.parentNode.replaceChild(newNode, item.node);
-                        }
-                    });
+                    if (nodesToReplace.length > 0) {
+                         if (!firstMatchSectionId) {
+                             firstMatchSectionId = section.id;
+                         }
+                         nodesToReplace.forEach(item => {
+                            const newNode = document.createElement('span');
+                            newNode.innerHTML = item.text.replace(regex, '<span class="highlight">$1</span>');
+                            if (item.node.parentNode) {
+                                item.node.parentNode.replaceChild(newNode, item.node);
+                            }
+                        });
+                    }
                 });
+                
+                if (firstMatchSectionId && firstMatchSectionId !== document.querySelector('.section.active').id) {
+                    showSection(firstMatchSectionId);
+                }
                 
                 setupCollapsibles();
                 setupCopyButtons();
@@ -1427,11 +1451,15 @@
             if (hash) {
                 showSection(hash);
             } else {
-                // Expand default active collapsibles
-                document.querySelectorAll('#intro .collapsible.active').forEach(button => {
-                    const content = button.nextElementSibling;
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                });
+                // Expand default active collapsibles and trigger resize logic
+                const defaultSection = document.querySelector('.section.active');
+                if (defaultSection) {
+                     const activeCollapsibles = defaultSection.querySelectorAll('.collapsible.active');
+                     activeCollapsibles.forEach(button => {
+                         const content = button.nextElementSibling;
+                         content.style.maxHeight = content.scrollHeight + 'px';
+                     });
+                }
             }
         });
 
