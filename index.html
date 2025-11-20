@@ -5,6 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HR Innovation Through AI: A Professional's Guide (2025 Edition)</title>
     <style>
+        /* --- CSS Variables for Theming --- */
+        :root {
+            --bg-body: #f4f7f6;
+            --bg-container: #ffffff;
+            --bg-section: #ffffff;
+            --bg-header: linear-gradient(135deg, #004a99 0%, #007bff 100%);
+            --text-main: #333333;
+            --text-muted: #666666;
+            --text-header: #ffffff;
+            --primary-color: #0056b3;
+            --accent-color: #004a99;
+            --border-color: #dddddd;
+            --highlight-color: #ffff00;
+            --prompt-bg: #2d3748;
+            --prompt-text: #f0f0f0;
+            --prompt-border: #68d391;
+            --callout-bg: #f0f7ff;
+            --card-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            --nav-hover: #0056b3;
+            --nav-text: #0056b3;
+            --nav-bg: white;
+            --nav-active-bg: #0056b3;
+            --nav-active-text: white;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #1a202c;
+            --bg-container: #2d3748;
+            --bg-section: #2d3748;
+            --bg-header: linear-gradient(135deg, #2c5282 0%, #2b6cb0 100%);
+            --text-main: #e2e8f0;
+            --text-muted: #a0aec0;
+            --text-header: #ffffff;
+            --primary-color: #63b3ed;
+            --accent-color: #90cdf4;
+            --border-color: #4a5568;
+            --highlight-color: #d69e2e;
+            --prompt-bg: #171923;
+            --prompt-text: #e2e8f0;
+            --prompt-border: #48bb78;
+            --callout-bg: #2a4365;
+            --card-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            --nav-hover: #90cdf4;
+            --nav-text: #63b3ed;
+            --nav-bg: #2d3748;
+            --nav-active-bg: #63b3ed;
+            --nav-active-text: #1a202c;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -18,25 +67,28 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f4f7f6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
             padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
         }
         
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            background: white;
+            background: var(--bg-container);
             border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            box-shadow: var(--card-shadow);
             overflow: hidden;
+            transition: background-color 0.3s;
         }
         
         .header {
-            background: linear-gradient(135deg, #004a99 0%, #007bff 100%);
-            color: white;
+            background: var(--bg-header);
+            color: var(--text-header);
             padding: 40px;
             text-align: center;
+            position: relative;
         }
         
         .header h1 {
@@ -49,12 +101,31 @@
             font-size: 1.2em;
             opacity: 0.9;
         }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.2s;
+            z-index: 1001;
+        }
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
         
         .nav-container {
             position: sticky;
             top: 0;
-            background: #ffffff;
-            border-bottom: 2px solid #0056b3;
+            background: var(--bg-container);
+            border-bottom: 2px solid var(--primary-color);
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 15px;
@@ -64,15 +135,15 @@
 
         .nav {
             display: flex;
-            justify-content: flex-start; /* Changed from 'center' */
+            justify-content: flex-start;
             flex-wrap: nowrap;
             gap: 10px;
         }
         
         .nav button {
-            background: white;
-            border: 2px solid #0056b3;
-            color: #0056b3;
+            background: var(--nav-bg);
+            border: 2px solid var(--primary-color);
+            color: var(--nav-text);
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 25px;
@@ -82,29 +153,32 @@
         }
         
         .nav button.active, .nav button:hover {
-            background: #0056b3;
-            color: white;
+            background: var(--nav-active-bg);
+            color: var(--nav-active-text);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .search-container {
             padding: 20px;
-            background: #f8f9fa;
-            border-bottom: 1px solid #ddd;
+            background: var(--bg-body);
+            border-bottom: 1px solid var(--border-color);
         }
         
         #searchBox {
             width: 100%;
             padding: 15px;
-            border: 2px solid #0056b3;
+            border: 2px solid var(--primary-color);
             border-radius: 25px;
             font-size: 1em;
             outline: none;
+            background: var(--bg-container);
+            color: var(--text-main);
         }
         
         .content {
             padding: 40px;
+            background: var(--bg-container);
         }
         
         .section {
@@ -122,37 +196,37 @@
         }
         
         h2 {
-            color: #004a99;
+            color: var(--accent-color);
             font-size: 2em;
             margin: 30px 0 20px 0;
-            border-bottom: 3px solid #004a99;
+            border-bottom: 3px solid var(--accent-color);
             padding-bottom: 10px;
         }
         
         h3 {
-            color: #0056b3;
+            color: var(--primary-color);
             font-size: 1.5em;
             margin: 25px 0 15px 0;
         }
         
         h4 {
-            color: #333;
+            color: var(--text-main);
             font-size: 1.2em;
             margin: 20px 0 10px 0;
             font-weight: 700;
         }
 
-        /* Updated Callout Boxes */
+        /* Callouts */
         .callout {
-            background: #f0f7ff;
-            border-left: 5px solid #0056b3;
+            background: var(--callout-bg);
+            border-left: 5px solid var(--primary-color);
             padding: 20px;
             margin: 20px 0;
             border-radius: 5px;
         }
         
         .callout.warning {
-            background: #fbebee;
+            background: rgba(211, 47, 47, 0.1);
             border-left-color: #d32f2f;
         }
         .callout.warning strong {
@@ -160,11 +234,11 @@
         }
         
         .callout.success {
-            background: #e8f5e9;
+            background: rgba(76, 175, 80, 0.1);
             border-left-color: #4caf50;
         }
         .callout.update {
-            background: #fff8e1;
+            background: rgba(255, 193, 7, 0.1);
             border-left-color: #ffc107;
         }
         .callout strong {
@@ -175,8 +249,8 @@
 
         /* Collapsible Sections */
         .collapsible {
-            background: #0056b3;
-            color: white;
+            background: var(--primary-color);
+            color: var(--bg-container);
             cursor: pointer;
             padding: 15px;
             width: 100%;
@@ -191,7 +265,7 @@
         }
         
         .collapsible:hover {
-            background: #004a99;
+            opacity: 0.9;
         }
         
         .collapsible:after {
@@ -209,9 +283,9 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
-            background: #f8f9fa;
+            background: var(--bg-body);
             border-radius: 0 0 5px 5px;
-            border: 1px solid #eee;
+            border: 1px solid var(--border-color);
             border-top: none;
         }
         
@@ -227,27 +301,97 @@
             margin: 10px 0;
         }
         
-        /* Prompt Boxes */
+        /* Prompt Boxes & Copy Button */
+        .prompt-wrapper {
+            position: relative;
+            margin: 15px 0;
+        }
+        
         .prompt-box {
-            background: #2d3748;
-            color: #f0f0f0;
+            background: var(--prompt-bg);
+            color: var(--prompt-text);
             padding: 20px;
+            padding-top: 35px; /* Space for copy button */
             border-radius: 8px;
             font-family: 'Courier New', monospace;
-            margin: 15px 0;
-            border-left: 4px solid #68d391;
+            border-left: 4px solid var(--prompt-border);
             font-size: 0.95rem;
             line-height: 1.5;
             overflow-x: auto;
         }
+        
         .prompt-box li {
             margin: 5px 0;
         }
+
+        .copy-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: var(--prompt-text);
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75em;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+        .copy-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Interactive Builder Styles */
+        .builder-card {
+            background: var(--bg-container);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .builder-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .builder-controls label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .builder-controls select, .builder-controls input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background: var(--bg-body);
+            color: var(--text-main);
+        }
+
+        .builder-btn {
+            background: var(--primary-color);
+            color: var(--nav-active-text);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+        .builder-btn:hover { opacity: 0.9; }
         
         /* Model Cards & Tables */
         .model-card {
-            background: white;
-            border: 1px solid #e0e0e0;
+            background: var(--bg-container);
+            border: 1px solid var(--border-color);
             border-radius: 10px;
             padding: 20px;
             margin: 15px 0;
@@ -256,7 +400,7 @@
         }
         
         .model-card:hover {
-            box-shadow: 0 8px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.1);
             transform: translateY(-3px);
         }
 
@@ -273,12 +417,12 @@
         }
         
         .pros {
-            background: #e8f5e9;
+            background: rgba(76, 175, 80, 0.1);
             border-left: 4px solid #4caf50;
         }
         
         .cons {
-            background: #ffebee;
+            background: rgba(244, 67, 54, 0.1);
             border-left: 4px solid #f44336;
         }
         .pros h4, .cons h4 {
@@ -296,18 +440,18 @@
         th, td {
             padding: 15px;
             text-align: left;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-color);
             vertical-align: top;
         }
         
         th {
-            background: #004a99;
+            background: var(--primary-color);
             color: white;
             font-weight: 600;
         }
         
         tr:nth-child(even) {
-            background: #f8f9fa;
+            background: var(--bg-body);
         }
         
         .footer {
@@ -338,7 +482,7 @@
         
         /* Search Highlight */
         .highlight {
-            background-color: yellow;
+            background-color: var(--highlight-color);
             font-weight: bold;
             color: #333;
         }
@@ -353,7 +497,7 @@
             .header h1 {
                 font-size: 1.8em;
             }
-            .pros-cons {
+            .pros-cons, .builder-controls {
                 grid-template-columns: 1fr;
             }
             .nav-container {
@@ -365,9 +509,11 @@
         }
     </style>
 </head>
-<body>
+<body data-theme="light">
     <div class="container">
         <div class="header">
+            <!-- New Theme Toggle -->
+            <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Dark Mode</button>
             <h1>HR Innovation Through AI: A Professional's Guide</h1>
             <p>2025 Edition - Interactive Guide</p>
         </div>
@@ -420,7 +566,8 @@
                             <li><strong>Navigate with Tabs:</strong> Use the "1. Introduction", "2. Intro to LLMs", etc. buttons at the top to jump between main sections. The active tab will be highlighted.</li>
                             <li><strong>Search Everything:</strong> Use the search bar to instantly find and highlight keywords (like "RAG" or "bias") across all sections of the guide.</li>
                             <li><strong>Expand Content:</strong> Look for the blue collapsible buttons (like this one!) to open and close subsections and keep the content tidy.</li>
-                            <li><strong>Copy Prompts:</strong> The dark grey boxes (<span style="font-family: 'Courier New', monospace; background: #2d3748; color: white; padding: 2px 4px; border-radius: 4px;">.prompt-box</span>) contain ready-to-use prompts you can copy and paste.</li>
+                            <li><strong>Copy Prompts:</strong> The dark prompt boxes contain ready-to-use prompts you can copy with the new "Copy" buttons.</li>
+                            <li><strong>New Tools:</strong> Use the <strong>Prompt Builder</strong> in Section 5 to generate custom prompts, and use the <strong>Dark Mode</strong> toggle in the header for comfortable reading.</li>
                         </ol>
                     </div>
                 </div>
@@ -678,6 +825,55 @@
             <div id="prompts" class="section">
                 <h2>5. Practical HR Prompts</h2>
                 <p>The success of an AI-assisted task depends on the clarity, complexity, and context of your prompt. These sample prompts are structured across levels—General, Intermediate, and Advanced—to cater to various HR competencies.</p>
+
+                <!-- NEW: Interactive Prompt Builder -->
+                <div class="builder-card">
+                    <h3>🛠️ Interactive Prompt Builder</h3>
+                    <p>Don't know where to start? Select your needs below to generate a custom high-quality prompt.</p>
+                    
+                    <div class="builder-controls">
+                        <div>
+                            <label>My Role:</label>
+                            <select id="builder-role">
+                                <option value="HR Manager">HR Manager</option>
+                                <option value="Recruiter">Recruiter</option>
+                                <option value="L&D Specialist">L&D Specialist</option>
+                                <option value="Comp & Ben Analyst">Comp & Ben Analyst</option>
+                                <option value="DEI Officer">DEI Officer</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Task Type:</label>
+                            <select id="builder-type">
+                                <option value="Draft an email">Draft an email</option>
+                                <option value="Create a checklist">Create a checklist</option>
+                                <option value="Analyze data">Analyze data</option>
+                                <option value="Write a policy">Write a policy</option>
+                                <option value="Prepare interview questions">Prepare interview questions</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Desired Tone:</label>
+                            <select id="builder-tone">
+                                <option value="Professional & Formal">Professional & Formal</option>
+                                <option value="Empathetic & Warm">Empathetic & Warm</option>
+                                <option value="Direct & Concise">Direct & Concise</option>
+                                <option value="Persuasive & Inspiring">Persuasive & Inspiring</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                         <label style="font-weight:bold; font-size: 0.9em;">Specific Topic/Context:</label>
+                         <input type="text" id="builder-context" placeholder="e.g., rejecting a candidate, remote work policy, Q4 performance review..." style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 5px; background: var(--bg-body); color: var(--text-main);">
+                    </div>
+                    
+                    <button class="builder-btn" onclick="generatePrompt()">✨ Generate Prompt</button>
+                    
+                    <div id="generated-result-container" style="display:none; margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                        <h4>Your Custom Prompt:</h4>
+                        <div id="generated-result" class="prompt-box"></div>
+                    </div>
+                </div>
 
                 <button class="collapsible active">Talent Acquisition Prompts</button>
                 <div class="collapsible-content" style="max-height: 1000px;"> <!-- Start open -->
@@ -1048,7 +1244,7 @@
     <script>
         let originalContent = new Map();
 
-        // Section Navigation
+        // 1. Navigation & Deep Linking
         function showSection(sectionId, clickedButton) {
             // Hide all sections
             document.querySelectorAll('.section').forEach(section => {
@@ -1061,18 +1257,32 @@
             });
             
             // Show selected section
-            document.getElementById(sectionId).classList.add('active');
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) targetSection.classList.add('active');
             
-            // Activate clicked button
-            clickedButton.classList.add('active');
+            // Activate button (handle clicks or deep links)
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            } else {
+                // Find the button that corresponds to this section ID
+                const btn = document.querySelector(`button[onclick*="'${sectionId}'"]`);
+                if (btn) btn.classList.add('active');
+            }
+            
+            // Update browser hash for sharing
+            window.location.hash = sectionId;
         }
 
-        // Collapsible Sections
+        // 2. Collapsible Sections
         function setupCollapsibles() {
             const collapsibles = document.querySelectorAll('.collapsible');
             
             collapsibles.forEach(button => {
-                button.addEventListener('click', function() {
+                // Clone to remove old listeners if re-running
+                const newBtn = button.cloneNode(true);
+                button.parentNode.replaceChild(newBtn, button);
+                
+                newBtn.addEventListener('click', function() {
                     this.classList.toggle('active');
                     const content = this.nextElementSibling;
                     
@@ -1084,8 +1294,64 @@
                 });
             });
         }
+
+        // 3. Copy Buttons for Prompts
+        function setupCopyButtons() {
+            const promptBoxes = document.querySelectorAll('.prompt-box');
+            promptBoxes.forEach(box => {
+                // Avoid double-wrapping
+                if (box.parentElement.classList.contains('prompt-wrapper')) return;
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = 'prompt-wrapper';
+                
+                // Wrap the box
+                box.parentNode.insertBefore(wrapper, box);
+                wrapper.appendChild(box);
+                
+                // Create button
+                const btn = document.createElement('button');
+                btn.innerHTML = '📋 Copy';
+                btn.className = 'copy-btn';
+                btn.onclick = function() {
+                    const text = box.innerText;
+                    navigator.clipboard.writeText(text).then(() => {
+                        btn.innerHTML = '✅ Copied!';
+                        setTimeout(() => btn.innerHTML = '📋 Copy', 2000);
+                    });
+                };
+                wrapper.appendChild(btn);
+            });
+        }
         
-        // Search Functionality
+        // 4. Prompt Builder Logic
+        function generatePrompt() {
+            const role = document.getElementById('builder-role').value;
+            const type = document.getElementById('builder-type').value;
+            const tone = document.getElementById('builder-tone').value;
+            const context = document.getElementById('builder-context').value || "[Insert Specific Details Here]";
+            
+            const prompt = `Act as an expert ${role}. I need you to assist me with the following task: ${type}.\n\nContext: ${context}\n\nPlease ensure the tone of the output is ${tone}. format the response clearly and highlight any areas where you need more information.`;
+            
+            const resultBox = document.getElementById('generated-result');
+            const container = document.getElementById('generated-result-container');
+            
+            resultBox.innerText = prompt;
+            container.style.display = 'block';
+            
+            // Add copy button to new result
+            setupCopyButtons();
+        }
+
+        // 5. Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+        }
+        
+        // 6. Robust Search
         function setupSearch() {
             const searchBox = document.getElementById('searchBox');
             const contentArea = document.getElementById('content-area');
@@ -1098,67 +1364,77 @@
             searchBox.addEventListener('input', function(e) {
                 const searchTerm = e.target.value.trim().toLowerCase();
                 
-                // Restore original content before new search
+                // Restore original content
                 originalContent.forEach((html, id) => {
                     document.getElementById(id).innerHTML = html;
                 });
                 
                 if (searchTerm.length < 3) {
-                    // Re-apply collapsible listeners since we restored HTML
+                    // Re-init interactions after restore
                     setupCollapsibles();
+                    setupCopyButtons();
+                    // Re-binding builder button isn't strictly needed as it's not inside a replaceable section
+                    // except the generated result container is inside #prompts.
+                    // Since #prompts content is restored, the generated result is hidden again. 
+                    // The onclick handler is on the button which is restored. It works fine.
                     return; 
                 }
 
                 const regex = new RegExp(`(${searchTerm.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
                 
                 contentArea.querySelectorAll('.section').forEach(section => {
-                    // We only search and highlight text nodes to avoid breaking HTML
                     const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT, null, false);
                     let node;
                     let nodesToReplace = [];
 
                     while (node = walker.nextNode()) {
-                        if (node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName === 'STYLE') {
+                        if (node.parentElement.tagName === 'SCRIPT' || 
+                            node.parentElement.tagName === 'STYLE' ||
+                            node.parentElement.tagName === 'TEXTAREA' ||
+                            node.parentElement.tagName === 'INPUT' ||
+                            node.parentElement.tagName === 'SELECT' ||
+                            node.parentElement.classList.contains('copy-btn')) {
                             continue;
                         }
                         const text = node.nodeValue;
                         if (text.toLowerCase().includes(searchTerm)) {
                             nodesToReplace.push({node: node, text: text});
                         }
-                    } // <-- End of while loop was moved here
+                    }
 
-                    // This loop now correctly executes *after* all nodes are found
                     nodesToReplace.forEach(item => {
                         const newNode = document.createElement('span');
                         newNode.innerHTML = item.text.replace(regex, '<span class="highlight">$1</span>');
-                        if (item.node.parentNode) { // Check if parent exists before replacing
+                        if (item.node.parentNode) {
                             item.node.parentNode.replaceChild(newNode, item.node);
                         }
                     });
-                }); // <-- Correct placement for the end of contentArea.querySelectorAll.forEach
+                });
                 
-                // Re-apply collapsible listeners after search highlighting
                 setupCollapsibles();
+                setupCopyButtons();
             });
         }
         
-        // Initial page load setup
+        // Initial Setup
         document.addEventListener('DOMContentLoaded', function() {
             setupCollapsibles();
             setupSearch();
+            setupCopyButtons();
             
-            // Ensure default active tab's collapsibles work
-             document.querySelectorAll('#intro .collapsible').forEach(button => {
-                const content = button.nextElementSibling;
-                if (button.classList.contains('active')) {
-                     content.style.maxHeight = content.scrollHeight + 'px';
-                }
-             });
+            // Check for Hash (Deep Linking)
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            } else {
+                // Expand default active collapsibles
+                document.querySelectorAll('#intro .collapsible.active').forEach(button => {
+                    const content = button.nextElementSibling;
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                });
+            }
         });
 
     </script>
 </body>
 </html>
-
-
-
